@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",
-        "name" => "Wati",
+        "name" => "Ekky Sukmawati",
         "email" => "ekkys99@gmail.com",
         "image" => "ekky.jpg"
     ]);
@@ -79,7 +79,7 @@ Route::get('posts/{slug}', function ($slug) {
         foreach ($blog_posts as $post) {
             if ($post["slug"] === $slug) {
                
-                $new_post = $post;
+                  $new_post = $post;
             }
         }
      return view('post', [

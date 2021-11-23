@@ -4,9 +4,9 @@
  <div class="container mt-4">
     <h1> About Me</h1>
 
-    <p>{{ $name }}</p>
+    <h4>{{ $name }}</h4>
     <p>{{ $email }}</p>
-    <img src="img/{{ $image }}" alt="{{ $name }}" width="200">
+    <img src="img/{{ $image }}" alt="{{ $name }}" width="200" class="img-thumbnail rounded-circle">
 
  </div>
 @endsection()
