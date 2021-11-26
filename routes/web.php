@@ -37,9 +37,10 @@ Route::get('/about', function () {
 // halaman single post
 // wild card { slug } : untuk mengambil apapun dari isi slash nya /
 // function ($slug) : slug dijadikan parameter agar bisa digunakan di function tersebut
+// Route::get('posts/{slug}',[PostController::class, 'show']);
 
 
 // Route sebariss
 
 Route::get('/posts', [PostController::class, 'index']);
-Route::get('posts/{slug}',[PostController::class, 'show']);
+Route::get('posts/{post:slug}',[PostController::class, 'show']);
