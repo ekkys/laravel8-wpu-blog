@@ -11,4 +11,15 @@ class Post extends Model
 
     // protected $fillable = ['title', 'excerpt', 'body'];
     protected $guarded =['id'];
+
+    /**
+     * Get the user that owns the                                                                              Post
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
+           
