@@ -41,15 +41,23 @@ Route::get('/about', function () {
 // Route::get('posts/{slug}',[PostController::class, 'show']);
 
 
-// Route sebariss
-
+// Route sebaris
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('posts/{post:slug}',[PostController::class, 'show']);
 
+//Category slug
 Route::get('/categories/{category:slug}', function (Category $category) {
     return view('category', [
         'title' => $category->name,
         'posts' => $category->posts,
         'category' => $category->name
+    ]);
+});
+
+//Categories
+Route::get('/categories', function(){
+    return view('categories', [
+        'title' => 'Post Categories',
+        'categories' => Category::all()
     ]);
 });
