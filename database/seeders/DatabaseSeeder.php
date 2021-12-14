@@ -28,6 +28,11 @@ class DatabaseSeeder extends Seeder
             'slug' => 'personal'
         ]);
 
+        Category::create([
+            'name' => 'Nature',
+            'slug' => 'nature'
+        ]);
+
         Post::factory(20)->create();
 
         // User::create([
