@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use App\Models\Post;
-use Illuminate\Support\Facades\Route;
+// use App\Models\Post;
+// use App\Models\User;
 use App\Models\Category;
-use App\Models\User;
-
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,13 +59,13 @@ use App\Models\User;
     });
 
     //Author
-    Route::get('/authors/{author:username}', function(User $author){
-        return view('posts', [
-            'title' => "Post By Author : $author->name",
-            "active" => "posts",
-            'posts' => $author->posts->load('category', 'author'),
-        ]);
-    });
+    // Route::get('/authors/{author:username}', function(User $author){
+    //     return view('posts', [
+    //         'title' => "Post By Author : $author->name",
+    //         "active" => "posts",
+    //         'posts' => $author->posts->load('category', 'author'),
+    //     ]);
+    // });
 
     //Categories
     Route::get('/categories', function() {
@@ -74,4 +75,11 @@ use App\Models\User;
             'categories' => Category::all()
         ]);
     });
+
+    //login
+    Route::get('/login', [LoginController::class, 'index']);
+
+    //register
+    Route::get('/register', [RegisterController::class, 'index']);
+    Route::post('/register', [RegisterController::class, 'store']);
 
