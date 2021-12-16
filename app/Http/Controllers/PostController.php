@@ -12,7 +12,7 @@ class PostController extends Controller
     public function index()
     {
         $title = '';
-        if (request('category') || ) {
+        if (request('category')) {
             $category = Category::firstWhere('slug', request('category'));
             $title = ' in '.$category->name;
         }
@@ -30,7 +30,7 @@ class PostController extends Controller
         return view('posts', [
             "title" => "All Posts". $title,
             "active" => "posts",
-            "posts" =>  Post::latest()->filter(request(['cari', 'category', 'author']))->get()
+            "posts" =>  Post::latest()->filter(request(['cari', 'category', 'author']))->paginate(7)
         ]);
     }
 
