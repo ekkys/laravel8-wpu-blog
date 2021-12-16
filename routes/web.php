@@ -88,7 +88,7 @@ use App\Http\Controllers\DashboardController;
     Route::post('/register', [RegisterController::class, 'store']);
 
     //dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 
 
