@@ -16,7 +16,6 @@ class DashboardPostController extends Controller
     {
         // return Post::where('user_id', auth()->user()->id )->get();
         return view('dashboard.posts.index', [
-            'title' => "All Post",
             'posts' => Post::where('user_id', auth()->user()->id )->get()
         ]);
     }
@@ -28,7 +27,7 @@ class DashboardPostController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.posts.create');
     }
 
     /**
