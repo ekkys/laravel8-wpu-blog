@@ -15,26 +15,27 @@
             </div>
             <div class="mb-3">
             <label for="slug" class="form-label">Slug</label>
-                 <input type="text" class="form-control" id="slug" name="slug">
+                 <input type="text" class="form-control" id="slug" name="slug" disabled readonly>
             </div>
 
           <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
     <script>
+        //ambil judul
         const title = document.querySelector('#title');
+        // tempat hasil slug
         const slug = document.querySelector('#slug');
 
+        //ketika terjadi perubahan di tittle
         title.addEventListener('change', function(){
-            fetch('/dashboard/posts/checkSlug?title=' + title.value)
-            .then(response => {
-                // response.json()
-                console.log(response.json());
-            })
-            .then(data => {
-                // slug.value = data.slugs
-                console.log(data);
-            });
-        });
+            fetch('/dashboard/posts/checkSlug?title='+ title.value)
+            .then(response => response.json())
+            .then(data => slug.value = data.slug)
+
+        })
+
+
+     
     </script>
 @endsection
