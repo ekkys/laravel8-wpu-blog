@@ -43,6 +43,7 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
+       return $request->file('image')->store('post-image');
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|max:255',
@@ -108,9 +109,10 @@ class DashboardPostController extends Controller
         $validatedData = $request->validate($rules);
 
         $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
         Post::where('id', $post->id)
-              ->update($validatedData);
+              ->updated($validatedData);
 
         return redirect('dashboard/posts')->with('success', 'Post has been updated!');
     }
