@@ -7,7 +7,7 @@
     </div>
 
     <div class="col-md-8">
-        <form action="/dashboard/posts" method="post">
+        <form action="/dashboard/posts" method="post" class="mb-5">
             @csrf
             <div class="mb-3">
             <label for="title" class="form-label">Title</label>

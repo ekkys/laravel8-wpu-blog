@@ -14,7 +14,6 @@
              <article class="my-3 fs6">
                  {!! $post->body !!}
              </article>
-            <a href="/posts">Back to Posts</a>
         </div>
     </div>
 </div>
