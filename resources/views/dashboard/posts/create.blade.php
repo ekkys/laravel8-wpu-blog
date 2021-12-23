@@ -11,7 +11,7 @@
             @csrf
             <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-                 <input type="text" class=" form-control @error('title') is-invalid @enderror " id="title" name="title" value="{{ old('title') }}"  required autofocus>
+                 <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}" required autofocus>
                  @error('title')
                      <div class="invalid-feedback">
                         {{ $message }}
@@ -20,7 +20,7 @@
             </div>
             <div class="mb-3">
             <label for="slug" class="form-label">Slug</label>
-                 <input type="text" class="form-control @error('slug') is-invalid @enderror " id="slug" name="slug" value="{{ old('slug') }}" required  readonly>
+                 <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{ old('slug') }}"  readonly>
                 @error('slug')
                     <div class="invalid-feedback">
                     {{ $message }}
@@ -39,12 +39,19 @@
                     @endforeach
                 </select>
             </div>
+
             <div class="mb-3">
-                <label for="image" class="form-label">Post Image</label>
-                <input class="form-control" type="file" id="image" name="image">
+                <label for="image" class="form-label">Default file input example</label>
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
+                    @error('image')
+                        <div class="invalid-feedback">
+                        {{ $message }}
+                        </div>
+                    @enderror
             </div>
+
             <div class="mb-3">
-            <label for="body" class="form-label">Body</label>
+                <label for="body" class="form-label">Body</label>
                 <input id="body" type="hidden" name="body" value="{{ old('body') }}"s>
                 @error('body')
                  <p class="text-danger">{{ $message }}</p>

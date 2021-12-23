@@ -5,6 +5,11 @@
 
 <h1 class="mb-3 text-center">{{ $title }}</h1>
 
+
+
+
+
+
 <div class="row justify-content-center mb-3" >
     <div class="col-md-6">
         <form action="/posts">
@@ -24,7 +29,14 @@
 
 @if ($posts->count())
     <div class="card mb-3">
-    <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name}}" class="card-img-top" alt="...">
+    @if ($posts[0]->image)
+        <div style="max-height:350px; overflow:hidden; width:auto;">
+                <img src={{ asset('storage/'.$posts[0]->image) }} class="img-fluid">
+        </div>
+    @else
+        <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name}}" class="card-img-top" alt="...">
+    @endif
+
         <div class="card-body text-center">
             <h3 class="card-title"><a href="/posts/{{ $posts[0]->slug }}"  class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h3>
             <small class="text-muted">
@@ -41,10 +53,14 @@
             <div class="col-md-4 mb-3">
                 <div class="card">
                     <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none"><div class="position-absolute px-3 py-2 text-white bg-dark">{{ $post->category->name }}</div></a>
+                    @if ($post->image)
+                    <img src={{ asset('storage/'.$post->image) }} class="img-fluid">
+                    @else
                     <img src="https://source.unsplash.com/500x400?{{ $post->category->name}}" class="card-img-top" alt="...">
+                    @endif
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->title}} </h5></small>
-                        <p> By.  <a href="/post?author={{ $post->author->username}}" class="text-decoration-none">{{ $post->author->name }}</a><small> {{ $post->created_at->diffForHumans()}} </small></p>
+                        <p> By.  <a href="/posts?author={{ $post->author->username}}" class="text-decoration-none">{{ $post->author->name }}</a><small> {{ $post->created_at->diffForHumans()}} </small></p>
                         <p class="card-text">{{ $post->excerpt }} </p>
                         <a href="/posts/{{ $post->slug }}"  class="text-decoration-none btn btn-primary">Read more ..</a></h2>
                     </div>
