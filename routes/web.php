@@ -94,5 +94,5 @@ use App\Http\Controllers\AdminCategoryController;
     Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
     //categories
-    Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');
+    Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
 
