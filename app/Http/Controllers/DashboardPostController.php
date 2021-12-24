@@ -24,6 +24,13 @@ class DashboardPostController extends Controller
         ]);
     }
 
+    public function welcomeDashboard()
+    {
+          return view('dashboard.index', [
+            'posts' => Post::where('user_id', auth()->user()->id )->get()
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -116,6 +123,7 @@ class DashboardPostController extends Controller
         $validatedData = $request->validate($rules);
 
         if($request->file('image')){
+
             if($request->oldImage){
                 Storage::delete($request->oldImage);
             }
@@ -140,6 +148,9 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if($post->image){
+            Storage::delete($post->image);
+        }
         Post::destroy($post->id);
 
         return redirect('dashboard/posts')->with('success','Post has been deleted!');

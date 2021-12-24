@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\AdminCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,7 +88,11 @@ use App\Http\Controllers\DashboardPostController;
     Route::post('/register', [RegisterController::class, 'store']);
 
     //dashboard
-    Route::get('/dashboard', [DashboardPostController::class, 'index'])->middleware('auth');
+    Route::get('/dashboard', [DashboardPostController::class, 'welcomeDashboard'])->middleware('auth');
     Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
+
     Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+
+    //categories
+    Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');
 
