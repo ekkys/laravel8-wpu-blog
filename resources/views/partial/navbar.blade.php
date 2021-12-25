@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-2">
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <a class="navbar-brand font-weight-bold" href="#"></a>
       <button

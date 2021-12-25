@@ -4,7 +4,7 @@
 <div class="head-section">
     <div class="container">
       <div class="row p-3">
-        <div class="col align-self-center">
+        <div class="col align-self-center mt-0">
           <img
             src="{{ asset('img/header_1.png') }}"
             class="img-fluid"
@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 <!-- CONTENT -->
     <div class="container">
         <div class="card mb-3 shadow-sm">

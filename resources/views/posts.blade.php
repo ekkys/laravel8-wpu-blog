@@ -3,20 +3,24 @@
 
 @section('container')
 
-<h1 class="mb-3 text-center">{{ $title }}</h1>
-
-<div class="row justify-content-center mb-3" >
-    <div class="col-md-6">
-        <form action="/posts">
+<div class="row ">
+    <div class="col align-self-center">
+      <img src="{{ asset('img/header_1.png') }}" class="img-fluid" />
+    </div>
+  </div>
+  
+  <div class="row justify-content-center mb-3" >
+      <div class="col-md-6">
+          <form action="/posts">
             @if (request('category'))
-                <input type="hidden" name="category" value="{{ request('category') }}">
+            <input type="hidden" name="category" value="{{ request('category') }}">
             @endif
             @if (request('author'))
-                <input type="hidden" name="author" value="{{ request('author') }}">
+            <input type="hidden" name="author" value="{{ request('author') }}">
             @endif
             <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2" name="cari" value= {{ request('cari')}}>
-            <button class="btn btn-dark" type="submit" id="button-addon2">Search</button>
+                <input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2" name="cari" value= {{ request('cari')}}>
+                <button class="btn btn-dark" type="submit" id="button-addon2">Search</button>
             </div>
         </form>
     </div>
