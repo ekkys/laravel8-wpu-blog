@@ -11,7 +11,7 @@
             @if ($post->image)
                 <img src={{ asset('storage/'.$post->image) }} class="img-fluid">
             @else
-                <img src="https://source.unsplash.com/1200x400?{{ $post->category->name}}" class="card-img-top" alt="{{ $post->category->name}}" class="img-fluid">
+                <img src="https://source.unsplash.com/1200x400?{{ $post->category->name}}" style="background-color: rgba(0,0,0,0.7)" class="card-img-top" alt="{{ $post->category->name}}" class="img-fluid">
             @endif
              <article class="my-3 fs6">
                  {!! $post->body !!}

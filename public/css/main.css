@@ -1,0 +1,59 @@
+body {
+    font-family: "Inter", sans-serif;
+}
+
+p {
+    color: #718096;
+}
+
+h1 {
+    color: #2d3748;
+}
+
+h2 {
+    color: #2d3748;
+}
+
+h3 {
+    color: #2d3748;
+}
+
+h4 {
+    color: #2d3748;
+}
+
+h5 {
+    color: #2d3748;
+}
+
+h6 {
+    color: #2d3748;
+}
+
+.head-section {
+    min-height: 400px;
+    height: auto;
+    background-color: #ffffff;
+}
+
+.article-section {
+    max-height: 400px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.bg-latest {
+    background-color: #f7fafc;
+}
+
+.btn-more {
+    background-color: #6b46c1;
+    color: white;
+}
+
+.btn-more:hover {
+    background-color: #230a5f;
+    color: white;
+}
+/*# sourceMappingURL=main.css.map */
